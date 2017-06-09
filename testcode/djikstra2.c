@@ -1,6 +1,26 @@
 /* Djikstra from
 http://rosettacode.org/wiki/Dijkstra%27s_algorithm#C
 */
+
+/* The graph corresponds to a simple room layout with
+
++++++++++++++++++++++++++++
++    +     +          +   + 
++ 0  +  12 +   13     +   +
++ |  +  |  +   |      +   +
+++|+++++|++++++| ++++++   +
++ 1---4-5------6----7---8 +
+++|+++|++++++++++++ | +   +
++ | + |  +   +    + | +   +
++ | + |  +   +    + | +   + 
++ 2---3---11---10---9 +   +
++   +   +    +    +   +   +
++   +   +    +    +   +   +
++++++++++++++++++++++++++++
+
+
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
