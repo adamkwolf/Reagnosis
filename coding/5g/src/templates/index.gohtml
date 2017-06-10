@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+{{template "head" .}}
+<body>
+{{template "header"}}
+<main id="app">
+    {{if .UserName}}
+    <div class="row">
+        <div class="col s6">
+            <div class="row">
+                <div class="col s12">
+                    <div class="card horizontal">
+                        <div id="chat-messages" class="card-content" v-html="chatContent">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s8">
+                    <input type="text" v-model="newMsg" @keyup.enter="send">
+                </div>
+                <div class="input-field col s4">
+                    <button class="waves-effect waves-light s2 btn" @click="send">
+                        <i class="material-icons right">chat</i>
+                        Send
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col s6">
+            <video autoplay="true" id="videoElement"></video>
+        </div>
+    </div>
+    {{else}}
+    <h6>Please sign in to connect to the Ambulance</h6>
+    {{end}}
+</main>
+{{if .UserName}}
+{{template "footer" .}}
+{{else}}
+{{template "footer"}}
+{{end}}
+{{template "scripts"}}
+{{if .UserName}}
+{{template "chat-script"}}
+{{end}}
+</body>
+</html>

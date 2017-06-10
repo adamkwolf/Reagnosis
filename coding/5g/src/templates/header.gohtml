@@ -1,0 +1,28 @@
+{{define "header"}}
+<head>
+    <meta charset="UTF-8">
+    <title>Raegnosis</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/emojione/2.2.6/assets/css/emojione.min.css"/>
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        #chat-messages {
+            min-height: 10vh;
+            height: 60vh;
+            width: 100%;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+{{end}}

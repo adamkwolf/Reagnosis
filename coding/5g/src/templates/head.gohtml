@@ -1,0 +1,23 @@
+{{define "head"}}
+<header>
+    <nav>
+        <div class="nav-wrapper blue lighten-1">
+            <a href="/" class="brand-logo center">Raegnosis</a>
+            {{if .UserName}}
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="/connect">Connect</a></li>
+                <li><a href="/overview">Overview</a></li>
+            </ul>
+            <ul class="right">
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+            {{else}}
+            <ul class="right">
+                <li><a href="/login">Login</a></li>
+                <li><a href="/signup">Sign Up</a></li>
+            </ul>
+            {{end}}
+        </div>
+    </nav>
+</header>
+{{end}}
