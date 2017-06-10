@@ -1,14 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 {{template "head" .}}
-<body>
+<body class="grey lighten-4">
 {{template "header"}}
 <main id="app">
     {{if .UserName}}
     <div class="row">
         <div class="col s6">
             <div class="row">
+                <h5>Video Stream<i class="material-icons right"
+                                style="color: #ef5350; display: inline-flex; vertical-align: middle; font-size: larger">videocam</i>
+                </h5>
+                <div class="divider"></div>
+                <div class="card horizontal">
+                    <!--<video autoplay="true" id="videoElement" style="width: 690px;"></video>-->
+                    <iframe style="width: 100%; height: 500px" src="https://appr.tc/r/582749562"></iframe>
+                </div>
+            </div>
+            <div class="row">
+                <form class="col s12">
+                    <div class="input-field col s12">
+                        <select multiple>
+                            <option value="" disabled selected>Select Ambulance(s)</option>
+                            <option value="201">Ambulance #201</option>
+                            <option value="281">Ambulance #281</option>
+                            <option value="265">Ambulance #265</option>
+                            <option value="311">Ambulance #311</option>
+                            <option value="350">Ambulance #350</option>
+                            <option value="360">Ambulance #360</option>
+                            <option value="380">Ambulance #380</option>
+                        </select>
+                        <label>Tracking:</label>
+                    </div>
+                </form>
+                <div class="divider"></div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m27!1m12!1m3!1d141965.6339560138!2d25.410884785485855!3d65.08045192127057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m12!3e6!4m4!1s0x468032a8c02185c1%3A0x8bb02d322b12e97d!3m2!1d65.0120888!2d25.465077299999997!4m5!1s0x468032a8c02185c1%3A0x8bb02d322b12e97d!2sOulu!3m2!1d65.0120888!2d25.465077299999997!5e0!3m2!1sen!2sfi!4v1497080641817"
+                        width="690" height="200" frameborder="2" style="border:2" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="col s4">
+            <div class="row">
                 <div class="col s12">
+                    <h5>Live Chat<i class="material-icons right"
+                                    style="color: #00e676; display: inline-flex; vertical-align: middle; font-size: larger">chat</i>
+                    </h5>
+                    <div class="divider"></div>
                     <div class="card horizontal">
                         <div id="chat-messages" class="card-content" v-html="chatContent">
                         </div>
@@ -17,22 +53,31 @@
             </div>
             <div class="row">
                 <div class="input-field col s8">
-                    <input type="text" v-model="newMsg" @keyup.enter="send">
+                    <input type="text" placeholder="Say something..." v-model="newMsg" @keyup.enter="send">
                 </div>
                 <div class="input-field col s4">
                     <button class="waves-effect waves-light s2 btn" @click="send">
-                        <i class="material-icons right">chat</i>
                         Send
                     </button>
                 </div>
             </div>
         </div>
-        <div class="col s6">
-            <video autoplay="true" id="videoElement"></video>
+        <div class="col s2" style="height: 100vh;">
+            <div class="row">
+                <h5>Data<i class="material-icons right"
+                           style="color: #039be5; display: inline-flex; vertical-align: middle; font-size: larger">timeline</i>
+                </h5>
+                <div class="divider"></div>
+                <canvas id="myChart" width="400" height="200"></canvas>
+            </div>
+            <div class="divider"></div>
+            <div class="row">
+                <canvas id="myChart2" width="400" height="200"></canvas>
+            </div>
         </div>
     </div>
     {{else}}
-    <h6>Please sign in to connect to the Ambulance</h6>
+    <h6>Please sign in or create an account!</h6>
     {{end}}
 </main>
 {{if .UserName}}

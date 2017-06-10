@@ -30,10 +30,6 @@
 
         methods: {
             send: function () {
-//                var email, username;
-//                $.get("/user-info", function (data) {
-//                });
-
                 if (this.newMsg != '') {
                     this.ws.send(
                         JSON.stringify({
@@ -43,21 +39,6 @@
                     this.newMsg = ''; // Reset newMsg
                 }
             },
-
-//            join: function () {
-//                if (!this.email) {
-//                    Materialize.toast('You must enter an email', 2000);
-//                    return
-//                }
-//                if (!this.username) {
-//                    Materialize.toast('You must choose a username', 2000);
-//                    return
-//                }
-//                this.email = $('<p>').html(this.email).text();
-//                this.username = $('<p>').html(this.username).text();
-//                this.joined = true;
-//            },
-
             gravatarURL: function(email) {
                 return 'https://www.gravatar.com/avatar/' + CryptoJS.MD5(email);
             }
@@ -78,5 +59,85 @@
     function videoError() {
 
     }
+
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var ctx2 = document.getElementById("myChart2").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ["5m", "4m", "3m", "2m", "1m", "0m"],
+            datasets: [{
+                label: 'Heart Rate BPM',
+                data: [85, 104, 96, 110, 92, 79],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 2
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:false
+                    }
+                }]
+            }
+        }
+    });
+
+    var myChart2 = new Chart(ctx2, {
+        type: 'line',
+        data: {
+            labels: ["3m", "2m", "1m", "30s", "15s", "0s"],
+            datasets: [{
+                label: 'Blood Pressure',
+                data: [105, 92, 88, 90, 93, 98],
+                backgroundColor: [
+                    'rgba(99, 255, 132, 0.2)',
+                    'rgba(162, 54, 235, 0.2)',
+                    'rgba(206, 255, 86, 0.2)',
+                    'rgba(192, 75, 192, 0.2)',
+                    'rgba(102, 153, 255, 0.2)',
+                    'rgba(159, 253, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 2
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:false
+                    }
+                }]
+            }
+        }
+    });
+
+    $(document).ready(function() {
+        $('select').material_select();
+    });
 </script>
 {{end}}
