@@ -200,7 +200,7 @@ func signup(w http.ResponseWriter, req *http.Request) {
 			return
 		}
 
-		stmt, err = db.Prepare(`INSERT INTO users VALUES (?, ?, ?, ?);`)
+		stmt, err := db.Prepare(`INSERT INTO users VALUES (?, ?, ?, ?);`)
 		if err != nil {
 			http.Redirect(w, req, "/signup", http.StatusSeeOther)
 			return
